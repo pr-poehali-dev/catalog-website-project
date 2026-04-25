@@ -1,0 +1,26 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "POST valid request",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "Тест", "phone": "+79001234567", "message": "Тестовая заявка"},
+      "expectedStatus": 200,
+      "expectedBody": {"ok": true},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "POST missing phone",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "Тест"},
+      "expectedStatus": 400
+    }
+  ]
+}
